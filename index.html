@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MAP Calculator</title>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .table-container {
+      margin: 0 20px;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 600px;  
+      font-size: 24px;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    input[type="number"] {
+      width: 100px;
+      font-size: 24px;
+     
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 28px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .result-table {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .result-table th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .result-table td {
+      padding: 20px;
+    }
+
+    p {
+      font-size: 24px;
+    }
+
+    body {
+      font-size: 24px;    
+    }
+  </style>
+  <script>
+    function calculateMAP() {
+      var systolicPressure = parseInt(document.getElementById('systolic-pressure').value);
+      var diastolicPressure = parseInt(document.getElementById('diastolic-pressure').value);
+
+      var map = (2 * diastolicPressure + systolicPressure) / 3;
+
+      var result = "Mean Arterial Pressure (MAP): " + map + " mmHg";
+      result += "<br><br><strong>How the MAP is Calculated:</strong>";
+      result += "<br>The Mean Arterial Pressure (MAP) is calculated using the following equation:";
+      result += "<br>MAP = (2 * Diastolic Pressure + Systolic Pressure) / 3";
+      result += "<br><br>The MAP represents the average pressure in the arteries during one cardiac cycle.";
+      result += "<br>It is commonly used to assess the perfusion pressure of organs and tissues.";
+      result += "<br><br>Please note that this is a simplified example and may not account for all factors.";
+      result += "<br>Consult with a healthcare professional for a comprehensive assessment of blood pressure.";
+
+      document.getElementById('result').innerHTML = result;
+    }
+  </script>
+</head>
+<body>
+  <h1>Mean Arterial Pressure (MAP) Calculator</h1>
+  <div>
+    <label for="systolic-pressure">Systolic Pressure:</label>
+    <input type="number" id="systolic-pressure" required>
+  </div>
+  <div>
+    <label for="diastolic-pressure">Diastolic Pressure:</label>
+    <input type="number" id="diastolic-pressure" required>
+  </div>
+  <button onclick="calculateMAP()">Calculate</button>
+  <p id="result"></p>
+</body>
+</html>
